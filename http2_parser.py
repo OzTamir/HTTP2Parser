@@ -91,4 +91,4 @@ def main(filename):
 	parse_data()
 
 if __name__ == '__main__':
-	main('ws_example_http2_raw.txt')
+	main('http2_raw.txt')

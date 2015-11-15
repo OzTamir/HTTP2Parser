@@ -5,9 +5,10 @@ from stream import Stream
 
 class HTTP2Parser(object):
 	''' Defines the Parser object '''
-	def __init__(self, data):
+	def __init__(self, data, debug=False):
 		self.data = data
 		self.streams = dict()
+		self.debug = debug
 
 	def get_bytes(self, length):
 		res = self.data[:length]
@@ -33,7 +34,8 @@ class HTTP2Parser(object):
 
 		stream.add_frame(frame)
 
-		frame.print_info()
+		if self.debug:
+			frame.print_info()
 
 	def parse_data(self):
 		''' Parse raw http packets '''
